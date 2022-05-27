@@ -60,16 +60,11 @@ const server = http.createServer((req, res) => { // use http module and use crea
         res.writeHead(200, {'Content-Type': 'application/json'});
         res.end(JSON.stringify(user));
       }
-      //student = leon
-      else if(params['student'] != 'leon'){
+      else { // student not found
         res.writeHead(200, {'Content-Type': 'application/json'});
-        const objToJson = {
-          name: "unknown",
-          status: "unknown",
-          currentOccupation: "unknown"
-        }
+        const objToJson = new Student('unknown', 'unknown', 'unknown')
         res.end(JSON.stringify(objToJson));
-      }//student != leon
+      }
     }//student if
   }//else if
 
