@@ -75,7 +75,7 @@ const server = http.createServer((req, res) => { // use http module and use crea
     } else {
       
       //we look for empty fields and push an error to server, also just return students array to async function in main.js
-      console.err('Fields are empty')
+      console.error('Fields are empty')
       // Return a new 'student' that will print a warnings where the name goes.  
       res.end(JSON.stringify(new Student("One or more required field was empty", "", "")));
     }
