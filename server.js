@@ -29,7 +29,7 @@ class Student{
   }
 }
 
-let students = [new Student('Kaleigh', 'finished eating'), new Student('Jamil', 'drinking water'), new Student('Ahmed', 'Ballin')]
+let students = [new Student('Kaleigh', 'editing'), new Student('Jamil', 'drinking water'), new Student('Ahmed', 'Ballin'), new Student('Jarrod', 'existential crisis'), new Student('Luffy', 'Strawhat'), new Student('Andrew', '!tired'), new Student('Ned', 'learning'), new Student('Christopher', 'Lost 0_0'), new Student('Stinnis', '!Not epic'), new Student('Mike Dubs', 'Complicated'), new Student('Brandon', 'coding?'), new Student('Kemi', 'Studying')]
 
 
 
