@@ -1,13 +1,20 @@
+//event listeners looking for button presses from index.html
 
+//call async function of addUser or makeReq
 document.querySelector('#addUserBtn').addEventListener('click', addUser)
 document.querySelector('#clickMe').addEventListener('click', makeReq)
 
+// <<<<<<< add-user-interface
 
 
 
 
 
-async function makeReq(){
+// =======
+// //async function which takes an input from index.html #userName id text field, fetches data from server, returns data as JSON (or throws an error)
+// //data is displayed into DOM 
+// >>>>>>> main
+// async function makeReq(){
 
   const userName = document.querySelector("#userName").value;
   const res = await fetch(`/api?student=${userName}`)
@@ -28,7 +35,8 @@ async function makeReq(){
 
 }
 
-
+//async function which takes an input from index.html #addUsername, #addUserStatus, #addUserOccupation id text field, fetches data from server main.js file and adds to the students array with this text field data as input, returned as JSON
+//data is displayed into DOM 
 async function addUser(){
 
   const userName = document.querySelector("#addUserName").value;
@@ -45,6 +53,7 @@ async function addUser(){
   document.querySelector("#personStatus").textContent = data._status
   document.querySelector("#personOccupation").textContent = data._occupation
 
+// <<<<<<< add-user-interface
   //variable that will be used as an argument in voice synthesis function
   let personInfoSentence = `Our very own ${data._occupation}, ${data._name}, is ${data._status}.`;
 
@@ -62,3 +71,6 @@ async function addUser(){
     let yellThis = new SpeechSynthesisUtterance(whatToYell);
     synth.speak(yellThis);
      }
+=======
+}
+// >>>>>>> main
