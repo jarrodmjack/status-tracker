@@ -1,7 +1,11 @@
+//event listeners looking for button presses from index.html
 
+//call async function of addUser or makeReq
 document.querySelector('#addUserBtn').addEventListener('click', addUser)
 document.querySelector('#clickMe').addEventListener('click', makeReq)
 
+//async function which takes an input from index.html #userName id text field, fetches data from server, returns data as JSON (or throws an error)
+//data is displayed into DOM 
 async function makeReq(){
 
   const userName = document.querySelector("#userName").value;
@@ -14,7 +18,8 @@ async function makeReq(){
   document.querySelector("#personOccupation").textContent = data._occupation
 }
 
-
+//async function which takes an input from index.html #addUsername, #addUserStatus, #addUserOccupation id text field, fetches data from server main.js file and adds to the students array with this text field data as input, returned as JSON
+//data is displayed into DOM 
 async function addUser(){
 
   const userName = document.querySelector("#addUserName").value;
@@ -32,7 +37,3 @@ async function addUser(){
   document.querySelector("#personOccupation").textContent = data._occupation
 
 }
-
-
-
-
