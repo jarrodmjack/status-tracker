@@ -34,6 +34,46 @@ let students = [new Student('Kaleigh', 'editing'), new Student('Jamil', 'drinkin
 
 // Creating the server
 const server = http.createServer((req, res) => { // use http module and use createServer method to create server
+
+  const page = url.parse(req.url).pathname; //tells us what path is being requested
+  const params = querystring.parse(url.parse(req.url).query); //query parameters
+  console.log(page); 
+  if (page == '/') { //if on main page....
+    fs.readFile('index.html', function(err, data) { //FS reads file system, selects page to serve (index.html)
+      res.writeHead(200, {'Content-Type': 'text/html'});
+      res.write(data);
+      res.end();
+    });
+  }
+
+
+  
+
+  else if (page === '/api') {
+    if('student' in params){
+      const user = students.find(item => item.name.toLowerCase() === params['student'].toLowerCase())
+      if(user){
+        res.writeHead(200, {'Content-Type': 'application/json'});
+        res.end(JSON.stringify(user));
+      }
+      else { // student not found
+        res.writeHead(200, {'Content-Type': 'application/json'});
+        const objToJson = new Student('unknown', 'unknown', 'unknown')
+        res.end(JSON.stringify(objToJson));
+      }
+    }//student if
+  }//else if
+
+
+  else if(page === '/add-user'){ 
+    if(params['name'] && params['status']){//if params are defined
+      const alph = 'abcdefghijklmnopqrstuvwxyz'.split('')
+      if(params['occupation'].length > 0 && alph.some(r=> params['occupation'].split('').indexOf(r) >= 0)){
+        console.log('here')
+        students.push(new Student(params['name'], params['status'], params['occupation'])) //push new obj to array
+      }else{
+        students.push(new Student(params['name'], params['status'])) // same as above but if occupation is NOT defined, goes to default param
+
 const page = url.parse(req.url).pathname; //tells us what path is being requested
 const params = querystring.parse(url.parse(req.url).query); //query parameters
 console.log(page); 
@@ -60,6 +100,7 @@ else if (page === '/api') {
         name: "unknown",
         status: "unknown",
         currentOccupation: "unknown"
+
       }
       res.end(JSON.stringify(objToJson));
     }//student != leon
