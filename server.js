@@ -29,7 +29,9 @@ class Student{
   }
 }
 
+
 let students = [new Student('Kaleigh', 'editing'), new Student('Jamil', 'drinking water'), new Student('Ahmed', 'Ballin'), new Student('Jarrod', 'existential crisis'), new Student('Luffy', 'Strawhat'), new Student('Andrew', '!tired'), new Student('Ned', 'learning'), new Student('Christopher', 'Lost 0_0'), new Student('Stinnis', '!Not epic'), new Student('Mike Dubs', 'Complicated'), new Student('Brandon', 'coding?'), new Student('Kemi', 'Studying')]
+
 
 
 
@@ -74,8 +76,9 @@ const server = http.createServer((req, res) => { // use http module and use crea
 
   else if(page === '/add-user'){ 
     if(params['name'] && params['status']){//if params are defined
-      const alph = 'abcdefghijklmnopqrstuvwxyz'
-      if(params['occupation'].length > 0 && alph.includes(params['occupation'])){
+      const alph = 'abcdefghijklmnopqrstuvwxyz'.split('')
+      if(params['occupation'].length > 0 && alph.some(r=> params['occupation'].split('').indexOf(r) >= 0)){
+        console.log('here')
         students.push(new Student(params['name'], params['status'], params['occupation'])) //push new obj to array
       }else{
         students.push(new Student(params['name'], params['status'])) // same as above but if occupation is NOT defined, goes to default param
