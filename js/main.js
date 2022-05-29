@@ -6,15 +6,11 @@ document.querySelector('#clickMe').addEventListener('click', makeReq)
 
 // <<<<<<< add-user-interface
 
-
-
-
-
 // =======
 // //async function which takes an input from index.html #userName id text field, fetches data from server, returns data as JSON (or throws an error)
 // //data is displayed into DOM 
 // >>>>>>> main
-// async function makeReq(){
+async function makeReq() {
 
   const userName = document.querySelector("#userName").value;
   const res = await fetch(`/api?student=${userName}`)
@@ -37,7 +33,7 @@ document.querySelector('#clickMe').addEventListener('click', makeReq)
 
 //async function which takes an input from index.html #addUsername, #addUserStatus, #addUserOccupation id text field, fetches data from server main.js file and adds to the students array with this text field data as input, returned as JSON
 //data is displayed into DOM 
-async function addUser(){
+async function addUser() {
 
   const userName = document.querySelector("#addUserName").value;
   const userStatus = document.querySelector("#addUserStatus").value;
@@ -70,7 +66,5 @@ async function addUser(){
     const synth = window.speechSynthesis;
     let yellThis = new SpeechSynthesisUtterance(whatToYell);
     synth.speak(yellThis);
-     }
-=======
-}
+  }
 // >>>>>>> main
