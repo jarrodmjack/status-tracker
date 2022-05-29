@@ -4,23 +4,32 @@
     <meta charset="utf-8">
     <title>Student Status Tracker</title>
     <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/1dc221c3e6.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <h1>Student Status Tracker</h1>
-    <input id="userName" type="text" name="" placeholder="Enter Name">
-    <button id="clickMe" type="button" name="button">Search Student Status</button>
-    <h2 id="personName"></h2>
-    <h2 id="personStatus"></h2>
-    <h2 id="personOccupation"></h2>
 
+    <section class="student-search">
+      <input id="userName" type="text" name="" placeholder="Enter Student Name">
+      <button id="clickMe" type="button" name="button">Search <i class="fa-solid fa-bullhorn"></i></button>
+    </section>
 
-  
-    <input id="addUserName" type="text" name="" placeholder="Enter Name">
-    <input id="addUserStatus" type="text" name="" placeholder="Enter Status">
-    <input id="addUserOccupation" type="text" name="" placeholder="Enter Occupation">
-    <button id="addUserBtn" type="button" name="button">Add Student Status</button>
+    <section class="student-results">
+      <h2 id="personName"></h2>
+      <h2 id="personOccupation"></h2>
+      <h2 id="personStatus"></h2>
+    </section>
 
+    <section class="student-add">
+      <input id="addUserName" type="text" name="" placeholder="*Enter Name">
+      <input id="addUserStatus" type="text" name="" placeholder="*Enter Status">
+      <input id="addUserOccupation" type="text" name="" placeholder="Enter Occupation">
+      <button id="addUserBtn" type="button" name="button">Add Student <i class="fa-solid fa-bullhorn"></i></button>
+    </section>
 
+    <footer>
+      <span>Created by 100devs-canada <i class="fa-brands fa-canadian-maple-leaf"></i></span>
+    </footer>
     <script type="text/javascript" src="/js/main.js"></script>
   </body>
 </html>
